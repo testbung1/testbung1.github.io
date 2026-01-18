@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>I Love You + Ads</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+      font-family: 'Arial', sans-serif;
+      position: relative;
+      overflow: hidden;
+    }
+
+    h1 {
+      font-size: 60px;
+      color: #fff;
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+      animation: glow 2s ease-in-out infinite alternate;
+      z-index: 1;
+    }
+
+    @keyframes glow {
+      from {
+        text-shadow: 0 0 10px #ff6b6b, 0 0 20px #ff6b6b, 0 0 30px #ff4757;
+      }
+      to {
+        text-shadow: 0 0 20px #ff9a9e, 0 0 30px #ff758c, 0 0 40px #ff4757;
+      }
+    }
+
+    .heart {
+      color: red;
+      font-size: 70px;
+      margin-left: 15px;
+      animation: beat 1s infinite;
+    }
+
+    @keyframes beat {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.3); }
+    }
+
+    /* Ads box */
+    .ad {
+      position: absolute;
+      background: rgba(255, 255, 255, 0.8);
+      border: 1px solid #ccc;
+      padding: 3px;
+      z-index: 2;
+    }
+
+    .ad-top { top: 0; left: 50%; transform: translateX(-50%); }
+    .ad-bottom { bottom: 0; left: 50%; transform: translateX(-50%); }
+    .ad-left { left: 0; top: 50%; transform: translateY(-50%); }
+    .ad-right { right: 0; top: 50%; transform: translateY(-50%); }
+    .ad-extra { bottom: 10px; right: 10px; }
+  </style>
+</head>
+<body>
+  <h1>I Love You <span class="heart">❤</span></h1>
+</body>
+</html>
