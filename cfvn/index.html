@@ -135,10 +135,16 @@
     <h2>🔒 Nội dung bị khóa</h2>
     <p>Vui lòng ấn vào cả 2 nút dưới đây để mở khóa</p>
 
-    <div id="ytBtn" class="action">
-      ▶️ Subscribe YouTube
-      <span class="checkmark">✅</span>
-    </div>
+<div id="ytBtn" class="action" 
+     style="background: linear-gradient(90deg,#000,#333); color:#fff; display:flex; align-items:center; justify-content:center; gap:8px;">
+  
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
+    <path d="M21 8.5a6.5 6.5 0 0 1-4.5-1.7V15a6 6 0 1 1-6-6c.2 0 .4 0 .6.1v3a3 3 0 1 0 3 3V2h3a6.5 6.5 0 0 0 3 4.5v2z"/>
+  </svg>
+
+  Follow TikTok
+  <span class="checkmark">✅</span>
+</div>
 
     <div id="teleBtn" class="action">
       💬 Tham gia nhóm Telegram
@@ -177,7 +183,7 @@
     let teleClicked = false;
     let unlocking = false;
 
-    ytBtn.onclick = () => handleClick(ytBtn, "https://youtube.com/@khoindvnmodios?si=6ODFdsejeZVCRk1M", "Đã nhấn Subscribe!");
+    ytBtn.onclick = () => handleClick(ytBtn, "https://www.tiktok.com/@khoindvn?_r=1&_t=ZS-94JyfqkFs4Q", "Đã nhấn Subscribe!");
     teleBtn.onclick = () => handleClick(teleBtn, "https://t.me/freemapios", "Đã tham gia nhóm Telegram!");
 
     function handleClick(btn, url, message) {
