@@ -1,0 +1,265 @@
+{
+  "name": "khoindvn.io.vn",
+  "subtitle": "",
+  "description": "",
+  "iconURL": "https://i.imgur.com/pqIZoZo.jpeg",
+  "website": "https://khoindvn.io.vn",
+  "patreonURL": "",
+  "tintColor": "#6156e2",
+  "featuredApps": [],
+  "apps": [
+    {
+      "name": "Video Star iOS 26",
+      "bundleIdentifier": "com.wtm31h80wp.4w7p6st4xm",
+      "marketplaceID": "",
+      "developerName": "khoindvn",
+      "subtitle": "",
+      "localizedDescription": "",
+      "iconURL": "https://i.imgur.com/cy22whi.jpeg",
+      "tintColor": "#6156e2",
+      "category": "other",
+      "screenshots": [],
+      "versions": [
+        {
+          "downloadURL": "https://github.com/testbung1/testbung1.github.io/releases/download/khoindvn/VideoStar.ipa",
+          "size": 317880000,
+          "version": "1.0",
+          "buildVersion": "",
+          "date": "2026-04-16T14:10:00+07:00",
+          "localizedDescription": null,
+          "minOSVersion": null
+        }
+      ],
+      "appPermissions": {
+        "entitlements": [],
+        "privacy": {}
+      },
+      "patreon": {}
+    },
+    {
+      "name": "WhatsAppFreeze",
+      "bundleIdentifier": "com.sfqqxlb3qf.2967uuvpub",
+      "marketplaceID": "",
+      "developerName": "khoindvn",
+      "subtitle": "",
+      "localizedDescription": "",
+      "iconURL": "https://i.imgur.com/cy22whi.jpeg",
+      "tintColor": "#6156e2",
+      "category": "other",
+      "screenshots": [],
+      "versions": [
+        {
+          "downloadURL": "https://github.com/testbung1/testbung1.github.io/raw/refs/heads/main/WhatsAppFreeze.dylib",
+          "size": 9000,
+          "version": "1.0",
+          "buildVersion": "",
+          "date": "2026-04-16T14:05:00+07:00",
+          "localizedDescription": null,
+          "minOSVersion": null
+        }
+      ],
+      "appPermissions": {
+        "entitlements": [],
+        "privacy": {}
+      },
+      "patreon": {}
+    },
+    {
+      "name": "SideloadKeychainFix",
+      "bundleIdentifier": "com.kde2jejv23.jp1nn2r2ga",
+      "marketplaceID": "",
+      "developerName": "khoindvn",
+      "subtitle": "",
+      "localizedDescription": "",
+      "iconURL": "https://i.imgur.com/cy22whi.jpeg",
+      "tintColor": "#6156e2",
+      "category": "other",
+      "screenshots": [],
+      "versions": [
+        {
+          "downloadURL": "https://github.com/testbung1/testbung1.github.io/raw/refs/heads/main/SideloadKeychainFix.dylib",
+          "size": 9000000,
+          "version": "1.0",
+          "buildVersion": "",
+          "date": "2026-04-16T07:04:00+07:00",
+          "localizedDescription": null,
+          "minOSVersion": null
+        }
+      ],
+      "appPermissions": {
+        "entitlements": [],
+        "privacy": {}
+      },
+      "patreon": {}
+    },
+    {
+      "name": "LIBTOOL",
+      "bundleIdentifier": "com.0ruwt6c1en.d4jfwpjxs3",
+      "marketplaceID": "",
+      "developerName": "Hao Phan",
+      "subtitle": "",
+      "localizedDescription": "",
+      "iconURL": "https://i.imgur.com/cy22whi.jpeg",
+      "tintColor": "#6156e2",
+      "category": "other",
+      "screenshots": [],
+      "versions": [
+        {
+          "downloadURL": "https://github.com/testbung1/testbung1.github.io/blob/main/LibTool.dylib",
+          "size": 4200000,
+          "version": "1.0.1",
+          "buildVersion": "",
+          "date": "2026-04-16T14:00:00+07:00",
+          "localizedDescription": null,
+          "minOSVersion": null
+        }
+      ],
+      "appPermissions": {
+        "entitlements": [],
+        "privacy": {}
+      },
+      "patreon": {}
+    },
+    {
+      "name": "LuckySpeeder",
+      "bundleIdentifier": "com.q8wfhxd67n.snxvc5gcqo",
+      "marketplaceID": "",
+      "developerName": "khoindvn",
+      "subtitle": "",
+      "localizedDescription": "",
+      "iconURL": "https://i.imgur.com/cy22whi.jpeg",
+      "tintColor": "#6156e2",
+      "category": "other",
+      "screenshots": [],
+      "versions": [
+        {
+          "downloadURL": "https://github.com/testbung1/testbung1.github.io/raw/refs/heads/main/LuckySpeeder.dylib",
+          "size": 89000000,
+          "version": "1.0.1",
+          "buildVersion": "",
+          "date": "2026-04-16T13:58:00+07:00",
+          "localizedDescription": null,
+          "minOSVersion": null
+        }
+      ],
+      "appPermissions": {
+        "entitlements": [],
+        "privacy": {}
+      },
+      "patreon": {}
+    },
+    {
+      "name": "ExtensionFix",
+      "bundleIdentifier": "com.rktq3be569.acxi28frf8",
+      "marketplaceID": "",
+      "developerName": "khoindvn",
+      "subtitle": "",
+      "localizedDescription": "",
+      "iconURL": "https://i.imgur.com/cy22whi.jpeg",
+      "tintColor": "#6156e2",
+      "category": "other",
+      "screenshots": [],
+      "versions": [
+        {
+          "downloadURL": "https://github.com/testbung1/testbung1.github.io/raw/refs/heads/main/ExtensionFix.dylib",
+          "size": 3500000,
+          "version": "1.0",
+          "buildVersion": "",
+          "date": "2026-04-16T13:55:00+07:00",
+          "localizedDescription": null,
+          "minOSVersion": null
+        }
+      ],
+      "appPermissions": {
+        "entitlements": [],
+        "privacy": {}
+      },
+      "patreon": {}
+    },
+    {
+      "name": "Freeshop ( Satella )",
+      "bundleIdentifier": "com.hkfsopc9td.4jbiyu1k0f",
+      "marketplaceID": "",
+      "developerName": "khoindvn",
+      "subtitle": "",
+      "localizedDescription": "",
+      "iconURL": "https://i.imgur.com/cy22whi.jpeg",
+      "tintColor": "#6156e2",
+      "category": "other",
+      "screenshots": [],
+      "versions": [
+        {
+          "downloadURL": "https://github.com/testbung1/testbung1.github.io/raw/refs/heads/main/Freeshop.dylib",
+          "size": 100000,
+          "version": "1.0",
+          "buildVersion": "",
+          "date": "2026-04-16T13:52:00+07:00",
+          "localizedDescription": null,
+          "minOSVersion": null
+        }
+      ],
+      "appPermissions": {
+        "entitlements": [],
+        "privacy": {}
+      },
+      "patreon": {}
+    },
+    {
+      "name": "BlockAds",
+      "bundleIdentifier": "com.quj20qd0wa.3y3dqx19ut",
+      "marketplaceID": "",
+      "developerName": "khoindvn",
+      "subtitle": "",
+      "localizedDescription": "",
+      "iconURL": "https://i.imgur.com/cy22whi.jpeg",
+      "tintColor": "#6156e2",
+      "category": "other",
+      "screenshots": [],
+      "versions": [
+        {
+          "downloadURL": "https://github.com/testbung1/testbung1.github.io/raw/refs/heads/main/BlockAds.dylib",
+          "size": 56000000,
+          "version": "1.0",
+          "buildVersion": "",
+          "date": "2026-04-16T13:49:00+07:00",
+          "localizedDescription": null,
+          "minOSVersion": null
+        }
+      ],
+      "appPermissions": {
+        "entitlements": [],
+        "privacy": {}
+      },
+      "patreon": {}
+    },
+    {
+      "name": "SpeedAds",
+      "bundleIdentifier": "com.y98tf8f5n1.admde4yxoc",
+      "marketplaceID": "",
+      "developerName": "igg",
+      "subtitle": "",
+      "localizedDescription": "",
+      "iconURL": "https://i.imgur.com/cy22whi.jpeg",
+      "tintColor": "#6156e2",
+      "category": "other",
+      "screenshots": [],
+      "versions": [
+        {
+          "downloadURL": "https://github.com/testbung1/testbung1.github.io/raw/refs/heads/main/adspeed.dylib",
+          "size": 10000000,
+          "version": "1.0",
+          "buildVersion": "",
+          "date": "2026-04-16T13:43:00+07:00",
+          "localizedDescription": "SpeedAds",
+          "minOSVersion": "12.0"
+        }
+      ],
+      "appPermissions": {
+        "entitlements": [],
+        "privacy": {}
+      },
+      "patreon": {}
+    }
+  ],
+  "news": []
+}
