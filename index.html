@@ -1,21 +1,25 @@
-<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>IPA HUB V40</title>
+<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>IPA HUB V42</title>
 <script src="https://unpkg.com/app-info-parser@1.1.4/dist/app-info-parser.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
 <style>
-    :root{--bg:#0b0e14;--card:#161b22;--blue:#007aff;--green:#28cd41}
-    body{background:var(--bg);color:#fff;font-family:sans-serif;margin:0;padding:10px}
-    .grid{display:flex;flex-direction:column;gap:15px}
-    @media(min-width:1000px){.grid{flex-direction:row}}
+    :root{--bg:#0b0e14;--card:#161b22;--blue:#007aff;--green:#28cd41;--red:#da373c}
+    body{background:var(--bg);color:#fff;font-family:-apple-system,sans-serif;margin:0;padding:10px}
+    .grid{display:flex;flex-direction:column;gap:15px}@media(min-width:1000px){.grid{flex-direction:row}}
     .block{background:var(--card);border-radius:15px;padding:15px;flex:1;border:1px solid #333}
-    .drop{border:2px dashed #444;padding:20px;text-align:center;border-radius:10px;margin:10px 0;cursor:pointer}
+    .drop{border:2px dashed #444;padding:20px;text-align:center;border-radius:10px;margin:15px 0;cursor:pointer}
     .p-bar{height:5px;background:#333;border-radius:5px;margin-top:10px;display:none;overflow:hidden}
     .p-fill{height:100%;background:var(--blue);width:0%}
-    .app-item{background:#0d1117;padding:10px;border-radius:10px;margin-bottom:10px;border:1px solid #222;font-size:12px}
-    .btn-sm{padding:5px 10px;font-size:10px;border-radius:5px;border:none;color:#fff;cursor:pointer;margin-right:5px}
+    .app-item{background:#0d1117;padding:12px;border-radius:12px;margin-bottom:10px;border:1px solid #222}
+    .btn-sm{padding:8px 12px;font-size:10px;border-radius:8px;border:none;color:#fff;cursor:pointer;font-weight:bold;margin-right:5px}
 </style></head>
 <body>
-    <div id="login" style="max-width:300px;margin:100px auto"><input type="password" id="pass" placeholder="Pass" style="width:100%;padding:10px;margin-bottom:10px"><button onclick="doLogin()" style="width:100%;padding:10px">Login</button></div>
+    <div id="login" style="max-width:320px;margin:15vh auto;background:var(--card);padding:25px;border-radius:20px">
+        <h2 style="text-align:center">IPA LOGIN</h2>
+        <input type="password" id="pass" placeholder="Password" style="width:100%;padding:10px;margin-bottom:10px;background:#000;color:#fff;border:1px solid #333;border-radius:10px">
+        <button onclick="doLogin()" style="width:100%;padding:10px;background:var(--blue);border:none;color:#fff;border-radius:10px;font-weight:bold">Vào Hub</button>
+    </div>
     <div id="dash" style="display:none">
+        <div style="padding:10px;display:flex;justify-content:space-between"><b>IPA HUB V42</b><a href="#" onclick="localStorage.clear();location.reload()" style="color:var(--red);text-decoration:none;font-size:12px">Đăng xuất</a></div>
         <div class="grid" id="container"></div>
     </div>
 <script>
@@ -34,57 +38,74 @@
         const div = document.getElementById('container');
         ACCOUNTS.forEach((acc, idx) => {
             div.innerHTML += `<div class="block">
-                <b>${acc.name}</b> <div style="font-size:10px">Dùng: <span id="st-${idx}">0</span>/10GB</div>
+                <b style="color:var(--blue)">${acc.name}</b> <div style="font-size:10px;color:#888">Sử dụng: <span id="st-${idx}">0</span> / 10GB</div>
                 <div class="drop" onclick="document.getElementById('in-${idx}').click()">
-                    <span id="txt-${idx}">➕ UP IPA</span>
-                    <input type="file" id="in-${idx}" style="display:none" onchange="up(this, ${idx})">
+                    <span id="txt-${idx}">➕ TẢI IPA LÊN</span>
+                    <input type="file" id="in-${idx}" style="display:none" accept=".ipa" onchange="upFile(this, ${idx})">
                     <div class="p-bar" id="pb-${idx}"><div class="p-fill" id="pf-${idx}"></div></div>
                 </div>
-                <div id="list-${idx}">Đang tải...</div>
+                <div id="list-${idx}" style="font-size:12px;color:#666">Đang tải danh sách...</div>
             </div>`;
-            load(idx);
+            loadData(idx);
         });
     }
 
-    async function load(idx){
+    async function loadData(idx){
         const acc = ACCOUNTS[idx];
-        const s = await(await fetch(`${acc.api}/storage`, {headers:{"Authorization":PASS}})).json();
-        document.getElementById(`st-${idx}`).innerText = (s.usedBytes/1024/1024).toFixed(1) + "MB";
-        
-        const res = await fetch(`https://api.github.com/repos/${acc.repo}/contents/apps`);
-        const files = await res.json();
-        let h = "";
-        if(files.length){
-            for(let f of files){
-                const meta = await(await fetch(f.download_url)).json();
-                h += `<div class="app-item">
-                    <b>${meta.name}</b> (v${meta.version})<br>
-                    <button class="btn-sm" style="background:var(--blue)" onclick="window.open('${meta.webLink}')">MỞ</button>
-                    <button class="btn-sm" style="background:var(--green)" onclick="navigator.clipboard.writeText('${meta.isgdLink}');alert('Coppy!')">IS.GD</button>
-                    <button class="btn-sm" style="background:#da373c" onclick="del(${idx},'${meta.id}','${meta.fileName}')">XOÁ</button>
-                </div>`;
+        const listDiv = document.getElementById(`list-${idx}`);
+        try {
+            const sRes = await fetch(`${acc.api}/storage`, {headers:{"Authorization":PASS}});
+            if(sRes.ok) {
+                const s = await sRes.json();
+                document.getElementById(`st-${idx}`).innerText = (s.usedBytes/1024/1024).toFixed(1) + " MB";
             }
-        }
-        document.getElementById(`list-${idx}`).innerHTML = h || "Trống";
+            const ghRes = await fetch(`https://api.github.com/repos/${acc.repo}/contents/apps?t=${Date.now()}`);
+            if (ghRes.status === 404) { listDiv.innerHTML = "Chưa có ứng dụng nào."; return; }
+            const files = await ghRes.json();
+            let html = "";
+            if(Array.isArray(files)){
+                const jsonFiles = files.filter(f => f.name.endsWith('.json'));
+                for(let f of jsonFiles){
+                    try {
+                        const meta = await (await fetch(f.download_url + "?t=" + Date.now())).json();
+                        html += `<div class="app-item">
+                            <b style="color:#58a6ff">${meta.name}</b> <small>v${meta.version}</small><br>
+                            <div style="margin-top:10px">
+                                <button class="btn-sm" style="background:var(--blue)" onclick="window.open('${meta.webLink}')">MỞ</button>
+                                <button class="btn-sm" style="background:var(--green)" onclick="navigator.clipboard.writeText('${meta.isgdLink}');alert('Copy Link!')">IS.GD</button>
+                                <button class="btn-sm" style="background:var(--red)" onclick="del(${idx},'${meta.id}','${meta.fileName}')">XOÁ</button>
+                            </div>
+                        </div>`;
+                    } catch(e) {}
+                }
+            }
+            listDiv.innerHTML = html || "Thư mục apps trống.";
+        } catch(e) { listDiv.innerHTML = "⚠️ Lỗi kết nối GitHub."; }
     }
 
-    async function up(input, idx){
+    async function upFile(input, idx){
         const file = input.files[0]; if(!file) return;
         const acc = ACCOUNTS[idx]; const txt = document.getElementById(`txt-${idx}`);
         const pb = document.getElementById(`pb-${idx}`); const pf = document.getElementById(`pf-${idx}`);
-        pb.style.display='block';
-        const info = await (new AppInfoParser(file)).parse();
-        const id = Date.now().toString();
-        const start = await(await fetch(`${acc.api}/upload/start`,{method:'POST',headers:{"Authorization":PASS},body:JSON.stringify({fileName:id+".ipa"})})).json();
-        const chunks = Math.ceil(file.size / (5*1024*1024)); const parts = [];
-        for(let i=0; i<chunks; i++){
-            const res = await fetch(`${acc.api}/upload/part?uploadId=${start.uploadId}&partNumber=${i+1}&key=${start.key}`,{method:'POST',headers:{"Authorization":PASS},body:file.slice(i*5*1024*1024,(i+1)*5*1024*1024)});
-            const p = await res.json(); parts.push({partNumber:i+1, etag:p.etag});
-            let pc = Math.round((i+1)/chunks*100); pf.style.width = pc+"%"; txt.innerText = `Up: ${pc}%`;
-        }
-        await fetch(`${acc.api}/upload/complete`,{method:'POST',headers:{"Authorization":PASS},body:JSON.stringify({uploadId:start.uploadId,key:start.key,parts,appData:{id,name:info.CFBundleDisplayName||info.CFBundleName,bundleId:info.CFBundleIdentifier,version:info.CFBundleShortVersionString,build:info.CFBundleVersion,executable:info.CFBundleExecutable,minOs:info.MinimumOSVersion,size:(file.size/1024/1024).toFixed(1)+"MB",icon:info.icon,certName:"Enterprise"}})});
-        pb.style.display='none'; txt.innerText = "✅ Xong!"; input.value=""; load(idx);
+        pb.style.display='block'; txt.innerText = "🚀 Khởi tạo...";
+        try {
+            const info = await (new AppInfoParser(file)).parse();
+            const id = Date.now().toString();
+            const start = await(await fetch(`${acc.api}/upload/start`,{method:'POST',headers:{"Authorization":PASS},body:JSON.stringify({fileName:id+".ipa"})})).json();
+            const chunkSize = 5 * 1024 * 1024; const chunks = Math.ceil(file.size / chunkSize); const parts = [];
+            for(let i=0; i<chunks; i++){
+                const res = await fetch(`${acc.api}/upload/part?uploadId=${start.uploadId}&partNumber=${i+1}&key=${start.key}`,{method:'POST',headers:{"Authorization":PASS},body:file.slice(i*chunkSize, (i+1)*chunkSize)});
+                const p = await res.json(); parts.push({partNumber:i+1, etag:p.etag});
+                let pc = Math.round((i+1)/chunks*100); pf.style.width = pc + "%"; txt.innerText = `Up: ${pc}%`;
+            }
+            txt.innerText = "⚙️ Đang đồng bộ GitHub...";
+            const compReq = await fetch(`${acc.api}/upload/complete`,{method:'POST',headers:{"Authorization":PASS},body:JSON.stringify({uploadId:start.uploadId,key:start.key,parts,appData:{id,name:info.CFBundleDisplayName||info.CFBundleName,bundleId:info.CFBundleIdentifier,version:info.CFBundleShortVersionString,size:(file.size/1024/1024).toFixed(1)+"MB",icon:info.icon}})});
+            const comp = await compReq.json();
+            if(!comp.success) { alert(comp.error); txt.innerText = "❌ Lỗi GitHub"; }
+            else { txt.innerText = "✅ Thành công! (Đợi 30s)"; setTimeout(() => { txt.innerText = "➕ TẢI IPA LÊN"; loadData(idx); }, 3000); }
+            pb.style.display='none'; input.value = "";
+        } catch(e) { alert("Lỗi: " + e.message); txt.innerText = "❌ Lỗi"; pb.style.display='none'; }
     }
 
-    async function del(idx, id, file){ if(confirm("Xoá?")){ await fetch(`${ACCOUNTS[idx].api}/delete?id=${id}&file=${file}`,{method:'DELETE',headers:{"Authorization":PASS}}); load(idx); } }
+    async function del(idx, id, file){ if(confirm("Xoá sạch?")){ await fetch(`${ACCOUNTS[idx].api}/delete?id=${id}&file=${file}`,{method:'DELETE',headers:{"Authorization":PASS}}); loadData(idx); } }
 </script></body></html>
