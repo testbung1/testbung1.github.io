@@ -4,7 +4,7 @@ import { defineConfig } from 'astro/config';
 // Site dùng custom domain khoindvn.io.vn nên 'site' đặt là domain đó,
 // 'base' để mặc định '/' (không cần prefix tên repo vì có domain riêng).
 export default defineConfig({
-  site: 'https://khoindvn.io.vn',
+  site: 'https://unlock.ipsv.eu.org',
   output: 'static',
   build: {
     // Giữ URL kiểu /tos/ thay vì /tos.html cho khớp cấu trúc cũ
