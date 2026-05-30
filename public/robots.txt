@@ -1,0 +1,10 @@
+# BEGIN Cloudflare Managed content
+
+User-agent: *
+Allow: /
+Disallow: /iPA/
+Disallow: /ipa.html
+
+# END Cloudflare Managed Content
+
+Sitemap: https://khoindvn.io.vn/sitemap.xml
