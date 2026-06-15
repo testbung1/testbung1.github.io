@@ -1,4 +1,0 @@
-google.com, pub-2341551858705774, DIRECT, f08c47fec0942fa0
-
-# Adsterra — thay YOUR_PUBLISHER_ID bằng Publisher ID thật rồi bỏ dấu # ở dòng dưới
-# adsterra.com, YOUR_PUBLISHER_ID, DIRECT
